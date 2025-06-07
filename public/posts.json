@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "React Hooks深入解析",
+    "date": "2023-06-15",
+    "excerpt": "探索React Hooks的核心概念和高级用法...",
+    "filePath": "/posts/react-hooks.md"
+  },
+  {
+    "id": 2,
+    "title": "CSS布局新范式",
+    "date": "2023-07-22",
+    "excerpt": "Flexbox和Grid布局的实战技巧...",
+    "filePath": "/posts/css-layouts.md"
+  }
+]

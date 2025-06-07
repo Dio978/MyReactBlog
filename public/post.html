@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文章详情</title>
+    <!-- 引入MathJax -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
+      .post-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      .markdown-body {
+        line-height: 1.6;
+      }
+      .markdown-body h1 {
+        font-size: 2.2rem;
+        border-bottom: 1px solid #eaecef;
+        padding-bottom: 0.3em;
+      }
+      .markdown-body h2 {
+        font-size: 1.8rem;
+        border-bottom: 1px solid #eaecef;
+        padding-bottom: 0.3em;
+      }
+      .markdown-body pre {
+        background: #f6f8fa;
+        padding: 1rem;
+        border-radius: 6px;
+        overflow: auto;
+      }
+      .back-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="post-container">
+      <button class="back-btn" onclick="window.close()">← 返回</button>
+      <div id="post-content"></div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 获取URL中的文件路径参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const filePath = urlParams.get("filePath");
+
+        if (!filePath) {
+          document.getElementById("post-content").innerHTML =
+            "<p>文章未找到</p>";
+          return;
+        }
+
+        // 获取并渲染Markdown内容
+        fetch(filePath)
+          .then((response) => response.text())
+          .then((markdown) => {
+            // 使用ReactMarkdown渲染（简化版）
+            const postContent = document.getElementById("post-content");
+            postContent.innerHTML = `
+            <div class="markdown-body">
+              <h1>${extractTitle(markdown)}</h1>
+              ${renderMarkdown(markdown)}
+            </div>
+          `;
+
+            // 确保MathJax处理数学公式
+            if (window.MathJax) {
+              MathJax.typesetPromise();
+            }
+          })
+          .catch((error) => {
+            console.error("加载文章失败:", error);
+            document.getElementById("post-content").innerHTML =
+              "<p>加载文章内容失败</p>";
+          });
+      });
+
+      // 提取标题（简化实现）
+      function extractTitle(markdown) {
+        const firstLine = markdown.split("\n")[0];
+        return firstLine.replace(/^#+\s*/, "");
+      }
+
+      // Markdown渲染（简化实现）
+      function renderMarkdown(markdown) {
+        return markdown
+          .replace(/^# .+/gm, "") // 移除标题行
+          .replace(/```([\s\S]*?)```/g, "<pre><code>$1</code></pre>")
+          .replace(/`([^`]+)`/g, "<code>$1</code>")
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+          .replace(/\*(.*?)\*/g, "<em>$1</em>")
+          .replace(/!$$(.*?)$$$$(.*?)$$/g, '<img alt="$1" src="$2">')
+          .replace(/$$(.*?)$$$$(.*?)$$/g, '<a href="$2">$1</a>');
+      }
+    </script>
+  </body>
+</html>

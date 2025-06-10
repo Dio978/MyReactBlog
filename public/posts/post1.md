@@ -285,3 +285,34 @@ $in = [split /[\s,]+/, $in];
 my $c = $in->[0] + $in->[1];
 print "$c\n";
 ```
+
+以下是一些复杂点的数学公式：
+
+- 菲涅尔衍射公式：
+
+$$
+U(x, y) = \frac{e^{ikz}}{i\lambda z} e^{ik(x^2 + y^2)/(2z)} \iint_{-\infty}^\infty U^{(0)}(x', y') e^{ik[(x')^2 + (y')^2 - 2xx' - 2yy']/(2z)} dx' dy'
+$$
+
+- 马尔可夫不等式：
+
+$$
+P(X \ge a) \le \frac{E[X]}{a}, \quad a > 0
+$$
+
+- 费曼图积分表达式（量子场论中的一种）：
+
+$$
+\begin{aligned}
+\mathcal{M} = & -i e^2 \int \frac{d^4k}{(2\pi)^4} \frac{\mathrm{Tr}[\gamma^\mu (\cancel{p}_1 - \cancel{k} + m_e) \gamma^\nu (\cancel{p}_2 + \cancel{k} + m_e)]}{(k^2 - m_e^2 + i\epsilon)[(p_1 - k)^2 - m_e^2 + i\epsilon][(p_2 + k)^2 - m_e^2 + i\epsilon]} \times \\
+& \times (g_{\mu\rho} - \frac{k_\mu k_\rho}{k^2 + i\epsilon})(g_{\nu\sigma} - \frac{k_\nu k_\sigma}{k^2 + i\epsilon}) \frac{-i g^{\rho\sigma}}{k^2 - m_\gamma^2 + i\epsilon}
+\end{aligned}
+$$
+
+- 黎曼曲率张量公式：
+
+$$
+R_{\mu\nu\rho\sigma} = \partial_\rho \Gamma_{\mu\nu\sigma} - \partial_\sigma \Gamma_{\mu\nu\rho} + \Gamma_{\mu\lambda\rho} \Gamma^\lambda_{\nu\sigma} - \Gamma_{\mu\lambda\sigma} \Gamma^\lambda_{\nu\rho}
+$$
+
+这些公式分别来源于光学、概率论、量子场论和微分几何等领域。

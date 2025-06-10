@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MyReactBlog/static/css/main.3d8bf514.css",
-    "main.js": "/MyReactBlog/static/js/main.164bc641.js",
+    "main.js": "/MyReactBlog/static/js/main.5f396f36.js",
     "static/js/453.6c06b83a.chunk.js": "/MyReactBlog/static/js/453.6c06b83a.chunk.js",
     "static/media/KaTeX_AMS-Regular.ttf": "/MyReactBlog/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/KaTeX_Main-Regular.ttf": "/MyReactBlog/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
@@ -67,11 +67,11 @@
     "index.html": "/MyReactBlog/index.html",
     "static/media/clipboard-icon.svg": "/MyReactBlog/static/media/clipboard-icon.bd336ef50842adf309e66732bf0ab59b.svg",
     "main.3d8bf514.css.map": "/MyReactBlog/static/css/main.3d8bf514.css.map",
-    "main.164bc641.js.map": "/MyReactBlog/static/js/main.164bc641.js.map",
+    "main.5f396f36.js.map": "/MyReactBlog/static/js/main.5f396f36.js.map",
     "453.6c06b83a.chunk.js.map": "/MyReactBlog/static/js/453.6c06b83a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3d8bf514.css",
-    "static/js/main.164bc641.js"
+    "static/js/main.5f396f36.js"
   ]
 }
